@@ -1,0 +1,39 @@
+﻿
+# WE-Markdown
+MKGV001/WE-Markdown.css
+
+#Dxlibが作成するデータ
+MKGV001/Log.txt
+MKGV001/Debug/
+MKGV001/Release/
+//Doxygen設定ファイル
+Doxyfile
+//Doxygenで作成されたhtml形式のドキュメント
+html/
+#Logファイル
+MKGV001Log.txt
+//boost
+MKGV001/boost_1_57_0/
+//Dxlib
+MKGV001/Dxlib/
+
+
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Visual C++ cache files
+ipch/
+*.aps
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx

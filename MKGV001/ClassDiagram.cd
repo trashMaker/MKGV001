@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MKGV001::Framework" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAACIAAAAAAAQAAAAAAAAIAAQAIAAAAgBAAAAAA=</HashCode>
+      <FileName>Sorce\Framework.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKGV001::Scene" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAIAAAAAQAABAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Sorce\Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKGV001::SceneManager" Collapsed="true">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEgAAAAAAAAAAAAAAAAAAAACAAAEAAQ=</HashCode>
+      <FileName>Sorce\SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKGV001::TitleScene" Collapsed="true">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAIAAIAAEAABAIAAAAAAAAAEAAA=</HashCode>
+      <FileName>Sorce\TitleScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MKGV001::Exception" Collapsed="true">
+    <Position X="5.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAACAAAAAAAAAAAAAAAAAAABAAABAABAAAIA=</HashCode>
+      <FileName>Sorce\Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="メイリオ" Size="9" />
+</ClassDiagram>
