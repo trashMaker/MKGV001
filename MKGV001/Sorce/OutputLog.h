@@ -1,11 +1,11 @@
 ﻿/**
-* 外部ファイルにログを出力する
-*/
+ * \file 外部ファイルにログを出力する
+ */
 #include <iostream>
 #include <memory>
 #include <string>
 #include <fstream>
-/*
+/**
  * \namespace MKGV001
  */
 namespace MKGV001{
@@ -19,9 +19,14 @@ namespace MKGV001{
 	* \param SUCCESSMESSAGE 成功時のメッセ
 	* \param FAILMESSAGE 失敗時のメッセ
 	*/
-#define OUTPUT(CONDITION,SUCCESSMESSAGE,FAILMESSAGE)\
+#define FLAGGED_OUTPUT(CONDITION,SUCCESSMESSAGE,FAILMESSAGE)\
 	MKGV001::outputLog.setData(CONDITION,SUCCESSMESSAGE,FAILMESSAGE,__FILE__,__FUNCTION__,__LINE__)
-
+	/**
+	* 列行関数などはマクロ埋め込みで取得
+	* \param MESSAGE メッセ
+	*/
+#define OUTPUT(MESSAGE)\
+	MKGV001::outputLog.setData(MESSAGE,__FILE__,__FUNCTION__,__LINE__)
 #else ///< #ifdef _DEBUG
 	//リリース時
 #define OUTPUT(CONDITION,SUCCESSMESSAGE,FAILMESSAGE)
@@ -36,12 +41,16 @@ namespace MKGV001{
 
 	public:
 		static OutPutLog& getInstance();///<staticオブジェクトを一度生成してそのオブジェクトへの参照
-
+		///FLAGGED_OUTPUT
 		void setData(bool condition, std::string successMessage, std::string failMessage, std::string file, std::string function, int line);///<出力用にデータを加工
 		void output(std::string flagName, bool condition, std::string message, std::string file, std::string function, int line);///<外部ファイルにログ出力
+		///OUTPUT
+		void setData(std::string message, std::string file, std::string function, int line);///<出力用にデータを加工
+		void output(std::string message, std::string file, std::string function, int line);///<外部ファイルにログ出力
 		
 	private:
 
+		int logNumber;
 		std::unique_ptr<std::ofstream> outputFile;///< uniqueptrで自動開放させる ファイル書き込み
 
 		std::string getFileName(std::string file);///< __FILE__のディレクトリなどのファイル名を test.cppを抜き出す

@@ -1,7 +1,11 @@
 ﻿#include "SceneManager.h"
 #include "TitleScene.h"
+#include "TrainingScene.h"
 #include "DxLib.h"
 #include "OutputLog.h"
+#include <vector>
+#include "Fps.h"
+#include "KeyPushed.h"
 /**
  * \namespace MKGV001
  */
@@ -11,6 +15,7 @@ namespace MKGV001{
 	 */
 	SceneManager::SceneManager(){
 		currentScene = new TitleScene();
+		fps = new Fps();
 	}
 	/**
 	 * インターフェイス
@@ -20,19 +25,29 @@ namespace MKGV001{
 			delete currentScene;
 			currentScene = nullptr;
 		}
+		if (fps){
+			delete fps;
+			fps = nullptr;
+		}
 	}
 	/**
 	 * 更新処理
 	 */
 	void SceneManager::update(){
 
-		while (1){
+		while (ProcessMessage() == 0){
+
+			fps->updateSeGaVer();
+
+			key.update();
+			Scene* nextScene = currentScene->update();
 			currentScene->draw();
 
+			fps->waitSeGaVer();
+			fps->drawFpsSeGaVer();
+			
 			if (ProcessMessage() == -1){
-				
-				//OUTPUT(false, "エラーもしくは、ウィンドウが閉じられました");
-				break;
+				OUTPUT("エラー終了もしくは、ウィンドウが閉じられました");
 			}
 		}
 	}
@@ -46,11 +61,11 @@ namespace MKGV001{
 			delete currentScene;
 			currentScene = nullptr;
 
-			/*switch (scene.getCurrentScene()){
+			switch (scene.getCurrentScene()){
 			case TitleScene::SceneFlow::TITLE:
-				currentScene = new TitleScene();
+				currentScene = &scene;
 				break;
-			}*/
+			}
 		}
 	}
 }

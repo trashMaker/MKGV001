@@ -61,7 +61,7 @@ namespace MKGV001{
 
 		bool flag = checkMode(init);
 
-		OUTPUT(flag, "DXlibの初期化に成功しました", "DXlibの初期化に失敗しました");
+		FLAGGED_OUTPUT(flag, "DXlibの初期化に成功しました", "DXlibの初期化に失敗しました");
 		if (!flag)THROW_EXCEPTION("DXlibの初期化に失敗しました");
 	}
 	/**
@@ -77,7 +77,7 @@ namespace MKGV001{
 
 		bool flag = check(end);
 		
-		OUTPUT(flag, "DXlibの終了に成功しました", "DXlibの終了に失敗しました");
+		FLAGGED_OUTPUT(flag, "DXlibの終了に成功しました", "DXlibの終了に失敗しました");
 		if (!flag)THROW_EXCEPTION("DXlibの終了に失敗しました");
 	}
 	/**
@@ -103,7 +103,7 @@ namespace MKGV001{
 
 		bool flag = (check(window) && check(graph)) == true;
 
-		OUTPUT(flag, "ウィンドウの設定成功", "ウィンドウの設定失敗");
+		FLAGGED_OUTPUT(flag, "ウィンドウの設定成功", "ウィンドウの設定失敗");
 		if (!flag)THROW_EXCEPTION("ウィンドウの設定失敗");
 	}
 	/**

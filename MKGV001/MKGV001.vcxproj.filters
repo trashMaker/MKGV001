@@ -8,6 +8,10 @@
     <ClCompile Include="Sorce\TitleScene.cpp" />
     <ClCompile Include="Sorce\SceneManager.cpp" />
     <ClCompile Include="Sorce\OutputLog.cpp" />
+    <ClCompile Include="Sorce\Fps.cpp" />
+    <ClCompile Include="Sorce\KeyPushed.cpp" />
+    <ClCompile Include="Sorce\SelectionMenu.cpp" />
+    <ClCompile Include="Sorce\TrainingScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sorce\Exception.h" />
@@ -17,6 +21,10 @@
     <ClInclude Include="Sorce\SceneManager.h" />
     <ClInclude Include="Sorce\Base.h" />
     <ClInclude Include="Sorce\OutputLog.h" />
+    <ClInclude Include="Sorce\Fps.h" />
+    <ClInclude Include="Sorce\KeyPushed.h" />
+    <ClInclude Include="Sorce\SelectionMenu.h" />
+    <ClInclude Include="Sorce\TrainingScene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

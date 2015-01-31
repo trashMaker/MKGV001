@@ -1,43 +1,43 @@
-#include "Exception.h"
+ï»¿#include "Exception.h"
 #include <Windows.h>
 #include <iostream>
 #include <sstream>
 namespace MKGV001{
 	/**
-	 * ƒGƒ‰[î•ñ‚ğ\’z
-	 * \param message ƒGƒ‰[ƒƒbƒZ[ƒW
-	 * \param file ƒGƒ‰[‚ª‹N‚«‚½ƒtƒ@ƒCƒ‹–¼
-	 * \param function ƒGƒ‰[‚ª‹N‚«‚½ŠÖ”–¼
-	 * \param line ƒGƒ‰[‚ª‹N‚«‚½s”Ô†
+	 * ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’æ§‹ç¯‰
+	 * \param message ã‚¨ãƒ©ãƒ¼ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
+	 * \param file ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸãƒ•ã‚¡ã‚¤ãƒ«å
+	 * \param function ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸé–¢æ•°å
+	 * \param line ã‚¨ãƒ©ãƒ¼ãŒèµ·ããŸè¡Œç•ªå·
 	 */
 	Exception::Exception(std::string message, std::string file,std::string function, int line)
 	{
 		std::ostringstream osio;
 
-		osio << file << "ƒtƒ@ƒCƒ‹‚Ì" << std::endl;
-		osio << function << "ŠÖ”‚Ì" << std::endl;
-		osio << line << "s–Ú‚Å" << std::endl;
+		osio << file << "ãƒ•ã‚¡ã‚¤ãƒ«ã®" << std::endl;
+		osio << function << "é–¢æ•°ã®" << std::endl;
+		osio << line << "è¡Œç›®ã§" << std::endl;
 		osio << message << std::endl;
 
 		detailMessage = osio.str();
 	}
 	/**
-	 * ƒRƒ“ƒ\[ƒ‹‚É•\¦
-	 * \param ƒƒbƒZ[ƒW
+	 * ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ã«è¡¨ç¤º
+	 * \param ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	 */
 	void Exception::outputCout(const char* message){
 		std::cout << message;
 	}
 	/**
-	 * ƒƒbƒZ[ƒWƒ{ƒbƒNƒX‚É•\¦
-	 * \param ƒƒbƒZ[ƒW
+	 * ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãƒœãƒƒã‚¯ã‚¹ã«è¡¨ç¤º
+	 * \param ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	 */
 	void Exception::outputMessageBox(const char* message){
 	
-		MessageBoxA(NULL, message,"—áŠOƒGƒ‰[", MB_OK);
+		MessageBoxA(NULL, message,"ä¾‹å¤–ã‚¨ãƒ©ãƒ¼", MB_OK);
 	}
 	/**
-	* ƒƒbƒZ[ƒW‚ğ•Ô‚·
+	* ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¿”ã™
 	*/
 	const char* Exception::what()const throw(){
 

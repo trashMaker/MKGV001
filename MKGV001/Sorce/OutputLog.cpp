@@ -10,6 +10,7 @@ namespace MKGV001{
 	 */
 	OutPutLog::OutPutLog() :outputFile(new std::ofstream("../MKGV001Log.txt", std::ios_base::out)){
 		//outputFile = new std::ofstream("../MKGV001Log.txt", std::ios_base::out);
+		logNumber = 0;
 	}
 	/**
 	 * ファイルを閉じる
@@ -55,6 +56,20 @@ namespace MKGV001{
 		}
 	}
 	/**
+	* 出力用に整理する
+	* \param message　メッセ
+	* \param file OUTPUTが呼ばれたファイル名
+	* \param function OUTPUTが呼ばれた関数名
+	* \param line OUTPUTが呼ばれた行
+	*/
+	void OutPutLog::setData(std::string message, std::string file, std::string function, int line){
+
+		//file名のみに短縮　　D/Source/test.cpp →　test
+		std::string miniFileName = getFileName(file);
+
+		output(message, miniFileName, function, line);
+	}
+	/**
 	 * ログ情報として出力
 	 * \param flagName flagの名前
 	 * \param condition flag
@@ -65,11 +80,25 @@ namespace MKGV001{
 	 */
 	void OutPutLog::output(std::string flagName, bool condition, std::string message, std::string file, std::string function, int line){
 		
-		static int logNumber = 0;
-
 		*outputFile << logNumber++ << ": ";
 		*outputFile << flagName;
 		*outputFile << "(" << condition << "):	";
+		*outputFile << message << "	";
+		*outputFile << "関数:" << function << "	";
+		*outputFile << "行" << line;
+		*outputFile << ":" << file;
+		*outputFile << std::endl;
+	}
+	/**
+	* ログ情報として出力
+	* \param message　メッセ
+	* \param file OUTPUTが呼ばれたファイル名
+	* \param function OUTPUTが呼ばれた関数名
+	* \param line OUTPUTが呼ばれた行
+	*/
+	void OutPutLog::output(std::string message, std::string file, std::string function, int line){
+
+		*outputFile << logNumber++ << ": ";
 		*outputFile << message << "	";
 		*outputFile << "関数:" << function << "	";
 		*outputFile << "行" << line;

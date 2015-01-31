@@ -2,7 +2,7 @@
  * ゲーム開始前枠組みの設定　シングルトン
  */
 /**
- * \namespace MySpace
+ * \namespace MKGV001
  */
 namespace MKGV001{
 
@@ -36,6 +36,5 @@ namespace MKGV001{
 		Framework& operator=(const Framework& obj){};	
 		~Framework();///<プログラム終了前の後片付け
 	};
-	//ここでオブジェクトを作成しておく
-	static Framework& framework = Framework::getInstance();
+	static Framework& framework = Framework::getInstance();///<ここでオブジェクトを作成しておく
 }
